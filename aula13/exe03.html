@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Resilia</title>
+
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            background: url("_img/f35222954d47efaf778799563d131772.jpg")
+        }
+        
+        h1 {
+            font-family: 'Times New Roman', Times, serif;
+        }
+        
+        .nome_label {
+            display: block;
+        }
+        
+        label {
+            font-size: 20px;
+        }
+        
+        div.caixa {
+            text-align: justify;
+            width: 290px;
+            display: flex;
+            flex-flow: column;
+            margin: auto;
+        }
+        
+        input {
+            margin-top: 3px;
+            width: 97.2%;
+            height: 30px;
+            border: 1px solid rgba(0, 0, 0, 0.205);
+            border-radius: 2px;
+        }
+        
+        .botao {
+            width: 100%;
+            background: rgb(0, 0, 255);
+            border: blue;
+            height: 35px;
+            font-size: 15px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: white;
+        }
+        
+        #resposta {
+            margin-top: 20px;
+            font-size: 20px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Imposto de renda Pizza Resilia</h1>
+
+    <div class="caixa">
+
+        <p>
+            <label for="custoPizza" class="nome_label"> Digite o custo da pizza</label>
+            <input type="number" name="custoPizza" id="custoPizza">
+        </p>
+
+        <p>
+            <label for="valorVendidoPizza" class="nome_label"> Digite o valor vendido da pizza</label>
+            <input type="number" name="valorVendidoPizza" id="valorVendidoPizza">
+        </p>
+
+        <p>
+            <label for="nomePizza" class="nome_label"> Digite o nome da pizza</label>
+            <input type="text" name="nomePizza" id="nomePizza">
+        </p>
+
+        <p>
+            <input type="button" class="botao" value="Calcular" onclick="calcularImposto()">
+        </p>
+    </div>
+    <div id="resposta">
+        interacao..
+    </div>
+
+    <script>
+        //pegando variaveis
+
+        function calcularImposto() {
+            var custoPizza = document.getElementById('custoPizza');
+            var valorVendidoPizza = document.getElementById('valorVendidoPizza');
+            var nomePizza = document.getElementById('nomePizza').value;
+
+            //transformando em numero
+            custoPizza = Number(custoPizza.value);
+            valorVendidoPizza = Number(valorVendidoPizza.value);
+
+            //imposto
+            var imposto = (valorVendidoPizza * 8.9) / 100;
+
+            //valor liquido pizza
+            var liquidoPizza = (valorVendidoPizza - custoPizza) - imposto;
+
+            //resultado
+            var res = document.getElementById('resposta');
+            return res.innerHTML = ` Para a pizza de ${nomePizza} o lucro líquido é de R$ ${liquidoPizza} e o imposto é de ${imposto} <br>`
+        }
+    </script>
+
+</body>
+
+</html>

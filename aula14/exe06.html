@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function semaforo(corSinal) {
+            if (corSinal == "verde") {
+                return "Voce pode passar";
+            }
+            if (corSinal == "amarelo") {
+                return " melhor freiar";
+            }
+            if (corSinal == "vermelho") {
+                return "pare já";
+            } else {
+                return "invalido";
+            }
+        }
+
+        document.write(semaforo("casa"));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inflacao</title>
+</head>
+
+<body>
+    <script>
+        //inflacao cada alimento
+        function inflacaoAlimento(alimentoPreco, alimentoPreco2) {
+            var inflacao = alimentoPreco2 - alimentoPreco;
+            return inflacao;
+        }
+
+        function textoAlimento(inflacao, alimento) {
+            return ` O produto ${alimento} esta com a infacao de ${inflacao} <br>`;
+        }
+
+
+        //inflacao media no periodo
+        function inflacaoMedia(alimento1, alimento2, alimento3, periodo) {
+            resultado = (alimento1 + alimento2 + alimento3) / periodo
+            return ` A inflacao media do periodo ${periodo} é de ${resultado} <br>`;
+
+        }
+
+        //estimativa diaria de inflacao
+        function inflacaoDiaria(alimentoPreco, alimentoPreco2, quantDias, alimento) {
+            var inflacao = alimentoPreco2 - alimentoPreco;
+            var inflaDiaria = inflacao / quantDias;
+            return ` A inflacao diaria do ${alimento} é de ${inflaDiaria} em ${quantDias} dias <br>`
+        }
+
+        //resultado na tela
+        var inflacaoTomate = inflacaoAlimento(3.30, 4.70);
+        document.write(textoAlimento(inflacaoTomate, "tomate"));
+
+
+        var iflacaoArroz = inflacaoAlimento(2.99, 3.25);
+        document.write(textoAlimento(iflacaoArroz, "arroz"));
+
+
+        var inflacaoCenoura = inflacaoAlimento(3.99, 4.14);
+        document.write(textoAlimento(inflacaoCenoura, "cenoura"));
+
+        document.write(inflacaoMedia(inflacaoTomate, iflacaoArroz, inflacaoCenoura, 3));
+
+        document.write(inflacaoDiaria(3.30, 4.70, 6, "tomate"));
+    </script>
+</body>
+
+</html>

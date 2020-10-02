@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divisão laranjas</title>
+</head>
+
+<body>
+    <script>
+        function divisaoLaranja(quantVizinho, quantLaranja) {
+            var resultado = parseInt(quantLaranja / quantVizinho);
+
+            return ` O total para seus vizinhos é  de ${resultado} laranja(s) <br>`;
+        }
+
+        function restoLaranja(quantVizinho, quantLaranja) {
+            var resultado = quantLaranja % quantVizinho;
+            return ` O que sobrou foi ${resultado} laranja(s) <br>`;
+        }
+
+        var quantLaranja = 50;
+        var quantVizinho = 7;
+
+        document.write(divisaoLaranja(quantVizinho, quantLaranja));
+        document.write(restoLaranja(quantVizinho, quantLaranja));
+    </script>
+</body>
+
+</html>
