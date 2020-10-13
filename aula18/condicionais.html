@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function fixedCharCodeAt(str, idx) {
+            // ex. fixedCharCodeAt('\uD800\uDC00', 0); // 65536
+            // ex. fixedCharCodeAt('\uD800\uDC00', 1); // false
+            idx = idx || 0;
+            var code = str.charCodeAt(idx);
+            var hi, low;
+
+            // Substituto elevado (poderia mudar o último hex para 0xDB7F para tratar
+            // substitutos privados elevados como caracteres únicos)
+            if (0xD800 <= code && code <= 0xDBFF) {
+                hi = code;
+                low = str.charCodeAt(idx + 1);
+                if (isNaN(low)) {
+                    throw 'High surrogate not followed by low surrogate in fixedCharCodeAt()';
+                }
+                return ((hi - 0xD800) * 0x400) + (low - 0xDC00) + 0x10000;
+            }
+            if (0xDC00 <= code && code <= 0xDFFF) { // Low surrogate
+                // Retornamos false para permitir os loops pularem essa iteração já que já deveria 
+                //ter tratado os substitutos elevados acima, na iteração anterior
+                return false;
+                /*hi = str.charCodeAt(idx - 1);
+                low = code;
+                return ((hi - 0xD800) * 0x400) + (low - 0xDC00) + 0x10000;*/
+            }
+            return code;
+        }
+    </script>
+</body>
+
+</html>
