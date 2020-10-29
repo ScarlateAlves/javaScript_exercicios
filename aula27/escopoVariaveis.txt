@@ -1,0 +1,27 @@
+escopo de uma variavel ->
+
+1- é a região do código-fonte de seu programa em que ela 
+está definida
+
+2-variável global tem escopo global, esta por sua vez fica 
+definida em toda parte de seu código JavaScript, ou seja 
+pode ser chamada a qualquer momento.
+
+3- variáveis declaradas dentro de uma função estão definidas
+ somente dentro do corpo da função.
+
+
+Hoisting
+Hoist em inglês significa levantar ou suspender algo através de
+um aparato mecânico. Em bom português, significa usar o guindaste
+para elevar um objeto. 
+
+E é isto o que acontece em JavaScript quando
+declaramos uma variável ou função. Sua declaração é “elevada” para
+o topo do escopo.
+
+Variable hoisting
+Toda vez que uma variável é definida, sua declaração é hoisted,
+mas não sua inicialização. O que quer dizer que a declaração da
+variável vai para cima do escopo antes mesmo do código ser executado,
+mas esta variável não recebe nenhum valor e permanece como undefined.
