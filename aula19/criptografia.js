@@ -1,6 +1,6 @@
 var nome = "RRRR";
 var deslocamento = 1
-
+    //funcional
 function cifraComCifraDeCesar(deslocamento, nome) {
     var msg = []
     var criptograf = []
